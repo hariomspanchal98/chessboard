@@ -1,0 +1,18 @@
+.block1{
+    background-color: black;
+    /* color: white; */
+}
+.block0{
+    background-color: white;
+}
+
+.true{
+    background-color: rgb(32, 160, 245);
+    /* color: white; */
+}
+.block0:hover{
+    background-color: blue;
+}
+.block1:hover{
+    background-color: blue;
+}
