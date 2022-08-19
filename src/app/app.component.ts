@@ -31,7 +31,9 @@ export class AppComponent implements OnInit {
   ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
   ];
 
-  fun:any;
+  fun: any;
+
+  operator: any;
 
   ngOnInit(): void {
 
@@ -42,13 +44,27 @@ export class AppComponent implements OnInit {
     }
     // console.log('dfsdfsf', this.flag[4][5], 'dfsdfsdf');
 
-    
+
     // this.click(Math.floor(Math.random() * 6),Math.floor(Math.random() * 6));
-    
+
   }
 
+  click(a: number, b: number) {
+    if (this.operator == 'bishop')
+      this.clickBishop(a, b);
+    if (this.operator == 'rook')
+      this.clickRook(a, b);
+    if (this.operator == 'queen') {
+      this.clickBishop(a, b);
+      this.clickRook(a, b);
+    }
+  }
 
-  click(r: any, c: any) {
+  setBishop() {
+    this.operator = 'bishop';
+  }
+
+  clickBishop(r: any, c: any) {
     this.flag[r][c] = true;
     {
       let i = 1;
@@ -66,11 +82,26 @@ export class AppComponent implements OnInit {
     }
   }
 
-  start(){
-    this.fun = setInterval(()=>{this.set()}, 70);
+  setRook() {
+    this.operator = 'rook';
   }
 
-  set(){
+  clickRook(r: any, c: any) {
+    for (let i = 0; i < 8; i++)
+      this.flag[r][i] = true;
+    for (let i = 0; i < 8; i++)
+      this.flag[i][c] = true;
+  }
+
+  setQueen() {
+    this.operator = 'queen';
+  }
+
+  start() {
+    this.fun = setInterval(() => { this.set() }, 70);
+  }
+
+  set() {
     this.flag = [[false, false, false, false, false, false, false, false],
     [false, false, false, false, false, false, false, false],
     [false, false, false, false, false, false, false, false],
@@ -79,7 +110,7 @@ export class AppComponent implements OnInit {
     [false, false, false, false, false, false, false, false],
     [false, false, false, false, false, false, false, false],
     [false, false, false, false, false, false, false, false]];
-    this.click(Math.floor(Math.random() * 7),Math.floor(Math.random() * 7));
+    this.click(Math.floor(Math.random() * 7), Math.floor(Math.random() * 7));
   }
 
   reset() {
