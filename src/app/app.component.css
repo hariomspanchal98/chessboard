@@ -1,18 +1,46 @@
-.block1{
+.block1 {
     background-color: black;
-    /* color: white; */
 }
-.block0{
+
+.block0 {
     background-color: white;
 }
 
-.true{
+.true {
     background-color: rgb(32, 160, 245);
     /* color: white; */
 }
-.block0:hover{
+
+.block0:hover {
     background-color: blue;
 }
-.block1:hover{
+
+.block1:hover {
     background-color: blue;
+}
+
+.icon {
+    font-size: 200%;
+    /* margin-left: auto; */
+}
+
+.iconDivB {
+    border: 3px solid white;
+    border-radius: 50%;
+    background-color: white;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+}
+
+.iconDivW {
+    color: white;
+    border: 3px solid black;
+    border-radius: 50%;
+    background-color: black;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
 }
