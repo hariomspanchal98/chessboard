@@ -5,10 +5,10 @@
         style="display:block;height: 73px;width: 73px;border: 1px solid;display: flex;align-items: center;justify-content: center;"
         (click)="click(i,j)">
         <div class="iconDivB" *ngIf="(board[i][j]== 'bknight')">
-          <i class='fas fa-chess-knight icon' (click)="setKnight()"></i>
+          <i class='fas fa-chess-knight icon' (click)="setKnight(i,j)"></i>
         </div>
         <div class="iconDivW" *ngIf="(board[i][j]== 'wknight')">
-          <i class='fas fa-chess-knight icon' (click)="setKnight()"></i>
+          <i class='fas fa-chess-knight icon' (click)="setKnight(i,j)"></i>
         </div>
 
         <div class="iconDivB" *ngIf="(board[i][j]== 'bpawn')">
@@ -19,34 +19,34 @@
         </div>
 
         <div class="iconDivB" *ngIf="(board[i][j]== 'bbishop')">
-          <i class='fas fa-chess-bishop icon' (click)="setBishop()"></i>
+          <i class='fas fa-chess-bishop icon' (click)="setBishop(i,j)"></i>
         </div>
         <div class="iconDivW" *ngIf="(board[i][j]== 'wbishop')">
-          <i class='fas fa-chess-bishop icon' (click)="setBishop()"></i>
+          <i class='fas fa-chess-bishop icon' (click)="setBishop(i,j)"></i>
         </div>
 
         <div class="iconDivB" *ngIf="(board[i][j]== 'brook')">
-          <i class='fas fa-chess-rook icon' (click)="setRook()"></i>
+          <i class='fas fa-chess-rook icon' (click)="setRook(i,j)"></i>
         </div>
         <div class="iconDivW" *ngIf="(board[i][j]== 'wrook')">
-          <i class='fas fa-chess-rook icon' (click)="setRook()"></i>
+          <i class='fas fa-chess-rook icon' (click)="setRook(i,j)"></i>
         </div>
 
         <div class="iconDivB" *ngIf="(board[i][j]== 'bking')">
-          <i class='fas fa-chess-king icon' (click)="setKing()"></i>
+          <i class='fas fa-chess-king icon' (click)="setKing(i,j)"></i>
         </div>
         <div class="iconDivW" *ngIf="(board[i][j]== 'wking')">
-          <i class='fas fa-chess-king icon' (click)="setKing()"></i>
+          <i class='fas fa-chess-king icon' (click)="setKing(i,j)"></i>
         </div>
 
         <div class="iconDivB" *ngIf="(board[i][j]== 'bqueen')">
-          <i class='fas fa-chess-queen icon' (click)="setQueen()"></i>
+          <i class='fas fa-chess-queen icon' (click)="setQueen(i,j)"></i>
         </div>
         <div class="iconDivW" *ngIf="(board[i][j]== 'wqueen')">
-          <i class='fas fa-chess-queen icon' (click)="setQueen()"></i>
+          <i class='fas fa-chess-queen icon' (click)="setQueen(i,j)"></i>
         </div>
 
-        <div *ngIf="(board[i][j]== 'null')" style="width: 100%;height: 100%;">
+        <div *ngIf="(board[i][j]== 'null')" (click)="resetOp(i,j)" style="width: 100%;height: 100%;">
         </div>
       </div>
     </div>

@@ -44,6 +44,7 @@ export class AppComponent implements OnInit {
   fun: any;
 
   operator: any;
+  count=0;
 
   tempObj: string = '';
   movingR: any;
@@ -64,7 +65,6 @@ export class AppComponent implements OnInit {
   }
 
   click(a: number, b: number) {
-    this.tempObj = this.operator;
     this.movingR = a;
     this.movingC = b;
     console.table(this.board);
@@ -87,8 +87,9 @@ export class AppComponent implements OnInit {
     
   }
 
-  setBishop() {
+  setBishop(r: any, c: any) {
     this.operator = 'bishop';
+    this.tempObj = this.board[r][c];
   }
 
   clickBishop(r: any, c: any) {
@@ -122,8 +123,9 @@ export class AppComponent implements OnInit {
     }
   }
 
-  setRook() {
+  setRook(r: any, c: any) {
     this.operator = 'rook';
+    this.tempObj = this.board[r][c];
   }
 
   clickRook(r: any, c: any) {
@@ -133,30 +135,33 @@ export class AppComponent implements OnInit {
       if (this.board == 'null') { this.flag[i][c] = true; };
   }
 
-  setKnight() {
+  setKnight(r: any, c: any) {
     this.operator = 'knight';
+    this.tempObj = this.board[r][c];
   }
 
   clickKnight(r: any, c: any) {
     if ((r - 2 >= 0 || r + 2 < 8) && (c - 2 >= 0 || c + 2 < 8)) {
-      if (this.board[r - 2][c - 1] == 'null') { this.flag[r - 2][c - 1] = true; };
-      if (this.board[r - 2][c + 1] == 'null') { this.flag[r - 2][c + 1] = true; };
+      if ((r - 2 >= 0) && (c - 1 >= 0) && this.board[r - 2][c - 1] == 'null') { this.flag[r - 2][c - 1] = true; };
+      if ((r - 2 >= 0) && (c + 1 < 8) && this.board[r - 2][c + 1] == 'null') { this.flag[r - 2][c + 1] = true; };
       if ((r + 2 < 8) && (c - 1 >= 0) && this.board[r + 2][c - 1] == 'null') { this.flag[r + 2][c - 1] = true; };
       if ((r + 2 < 8) && (c + 1 < 8) && this.board[r + 2][c + 1] == 'null') { this.flag[r + 2][c + 1] = true; };
-      if (this.board[r - 1][c - 2] == 'null') { this.flag[r - 1][c - 2] = true; };
-      if (this.board[r - 1][c + 2] == 'null') { this.flag[r - 1][c + 2] = true; };
+      if ((r - 1 >= 0) && (c - 2 >= 0) && this.board[r - 1][c - 2] == 'null') { this.flag[r - 1][c - 2] = true; };
+      if ((r - 1 >= 0) && (c + 2 < 8) && this.board[r - 1][c + 2] == 'null') { this.flag[r - 1][c + 2] = true; };
       if ((r + 1 < 8) && (c - 2 >= 0) && this.board[r + 1][c - 2] == 'null') { this.flag[r + 1][c - 2] = true; };
       if ((r + 1 < 8) && (c + 2 < 8) && this.board[r + 1][c + 2] == 'null') { this.flag[r + 1][c + 2] = true; };
     }
     this.operator = '';
   }
 
-  setQueen() {
+  setQueen(r: any, c: any) {
     this.operator = 'queen';
+    this.tempObj = this.board[r][c];
   }
 
-  setKing() {
+  setKing(r: any, c: any) {
     this.operator = 'king';
+    this.tempObj = this.board[r][c];
   }
 
   clickKing(r: any, c: any) {
@@ -209,10 +214,11 @@ export class AppComponent implements OnInit {
       console.table(this.board);
     }
     else {
-      console.log('Reseted');
+      console.log('Reseted',this.count++);
       this.tempObj = '';
       this.operator = '';
       this.reset();
+
     }
   }
 }
