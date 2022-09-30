@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
 
   title = 'chessboard';
-
+  var1:any;
   flag: any = [[false, false, false, false, false, false, false, false],
   [false, false, false, false, false, false, false, false],
   [false, false, false, false, false, false, false, false],
