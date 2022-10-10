@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   [false, false, false, false, false, false, false, false],
   [false, false, false, false, false, false, false, false],
   [false, false, false, false, false, false, false, false]];
+  // this is comment
 
   rows = [1, 2, 3, 4, 5, 6, 7, 8];
   columns = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
@@ -84,7 +85,7 @@ export class AppComponent implements OnInit {
       this.clickKing(a, b);
     else
     this.resetOp(a,b);
-    
+
   }
 
   setBishop(r: any, c: any) {
