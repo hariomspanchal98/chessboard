@@ -12,10 +12,10 @@
         </div>
 
         <div class="iconDivB" *ngIf="(board[i][j]== 'bpawn')">
-          <i class='fas fa-chess-pawn icon'></i>
+          <i class='fas fa-chess-pawn icon' (click)="setBPawn(i,j)"></i>
         </div>
         <div class="iconDivW" *ngIf="(board[i][j]== 'wpawn')">
-          <i class='fas fa-chess-pawn icon'></i>
+          <i class='fas fa-chess-pawn icon' (click)="setWPawn(i,j)"></i>
         </div>
 
         <div class="iconDivB" *ngIf="(board[i][j]== 'bbishop')">
