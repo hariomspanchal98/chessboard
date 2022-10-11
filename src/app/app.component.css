@@ -6,6 +6,10 @@
     background-color: white;
 }
 
+.red{
+    background-color: red;
+}
+
 .true {
     background-color: rgb(32, 160, 245);
     /* color: white; */
@@ -20,7 +24,7 @@
 }
 
 .icon {
-    font-size: 200%;
+    font-size: 250%;
     /* margin-left: auto; */
 }
 

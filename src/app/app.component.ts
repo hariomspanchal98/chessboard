@@ -1,4 +1,3 @@
-import { IfStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -51,6 +50,8 @@ export class AppComponent implements OnInit {
   tempObj: string = '';
   movingR: any;
   movingC: any;
+
+  turn:boolean = true;
 
   ngOnInit(): void {
 
@@ -217,11 +218,22 @@ export class AppComponent implements OnInit {
 
   clickBpawn(r: any, c: any) {
     if (r == 1) {
-      if (this.board[r + 1][c] == 'null') { this.flag[r + 1][c] = true };
-      if (this.board[r + 2][c] == 'null') { this.flag[r + 2][c] = true };
+      if (this.board[r + 1][c] == 'null') {
+        this.flag[r + 1][c] = true
+        if (this.board[r + 2][c] == 'null') {
+          this.flag[r + 2][c] = true
+        };
+      };
     }
     else
       if (this.board[r + 1][c] == 'null') { this.flag[r + 1][c] = true };
+
+    if (r + 1 < 8 && (c - 1 >= 0 || c + 1 < 8)) {
+      if (this.board[r + 1][c + 1] == 'wpawn' || this.board[r + 1][c + 1] == 'wrook' || this.board[r + 1][c + 1] == 'wknight' || this.board[r + 1][c + 1] == 'wbishop' || this.board[r + 1][c + 1] == 'wking' || this.board[r + 1][c + 1] == 'wqueen')
+        this.flag[r + 1][c + 1] = 'red';
+      if (this.board[r + 1][c - 1] == 'wpawn' || this.board[r + 1][c - 1] == 'wrook' || this.board[r + 1][c - 1] == 'wknight' || this.board[r + 1][c - 1] == 'wbishop' || this.board[r + 1][c - 1] == 'wking' || this.board[r + 1][c - 1] == 'wqueen')
+        this.flag[r + 1][c - 1] = 'red';
+    }
     this.operator = '';
   }
 
@@ -232,11 +244,21 @@ export class AppComponent implements OnInit {
 
   clickWpawn(r: any, c: any) {
     if (r == 6) {
-      if (this.board[r - 1][c] == 'null') { this.flag[r - 1][c] = true };
-      if (this.board[r - 2][c] == 'null') { this.flag[r - 2][c] = true };
+      if (this.board[r - 1][c] == 'null') {
+        this.flag[r - 1][c] = true;
+        if (this.board[r - 2][c] == 'null') { this.flag[r - 2][c] = true };
+      };
     }
     else
       if (this.board[r - 1][c] == 'null') { this.flag[r - 1][c] = true };
+
+    if (r - 1 >= 0 && (c - 1 >= 0 || c + 1 < 8)) {
+      if (this.board[r - 1][c + 1] == 'bpawn' || this.board[r - 1][c + 1] == 'brook' || this.board[r - 1][c + 1] == 'bknight' || this.board[r - 1][c + 1] == 'bbishop' || this.board[r - 1][c + 1] == 'bking' || this.board[r - 1][c + 1] == 'bqueen')
+        this.flag[r - 1][c + 1] = 'red';
+      if (this.board[r - 1][c - 1] == 'bpawn' || this.board[r - 1][c - 1] == 'brook' || this.board[r - 1][c - 1] == 'bknight' || this.board[r - 1][c - 1] == 'bbishop' || this.board[r - 1][c - 1] == 'bking' || this.board[r - 1][c - 1] == 'bqueen')
+        this.flag[r - 1][c - 1] = 'red';
+    }
+
     this.operator = '';
   }
 
@@ -275,6 +297,13 @@ export class AppComponent implements OnInit {
       this.board[this.movingR][this.movingC] = 'null';
       this.reset();
       // console.table(this.board);
+    }
+    else if (this.tempObj && (this.flag[r][c] == 'red')) {
+      // console.log('abc');
+      this.board[r][c] = this.tempObj;
+      // console.log(this.board[r][c], 'dsfdfs', this.tempObj);
+      this.board[this.movingR][this.movingC] = 'null';
+      this.reset();
     }
     else {
       // console.log('Reseted', this.count++);

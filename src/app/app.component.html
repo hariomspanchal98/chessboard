@@ -3,7 +3,7 @@
     <div *ngFor="let c of r;let j= index">
       <div class="block{{(i+j)%2}} {{flag[i][j]}}"
         style="display:block;height: 73px;width: 73px;border: 1px solid;display: flex;align-items: center;justify-content: center;"
-        (click)="click(i,j)">
+        (click)="click(i,j)" >
         <div class="iconDivB" *ngIf="(board[i][j]== 'bknight')">
           <i class='fas fa-chess-knight icon' (click)="setKnight(i,j)"></i>
         </div>
