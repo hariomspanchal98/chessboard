@@ -67,8 +67,8 @@ export class AppComponent implements OnInit {
   }
 
   click(a: number, b: number) {
-    console.log(this.operator);
-    console.log(a, b);
+    // console.log(this.operator);
+    // console.log(a, b);
     this.movingR = a;
     this.movingC = b;
     // console.table(this.board);
@@ -137,7 +137,7 @@ export class AppComponent implements OnInit {
   }
 
   clickRook(r: any, c: any) {
-    console.log('rook clicked');
+    // console.log('rook clicked');
 
     for (let i = r + 1; i < 8; i++)
       if (this.board[i][c] == 'null')
@@ -271,13 +271,13 @@ export class AppComponent implements OnInit {
   resetOp(r: any, c: any) {
     if (this.tempObj && (this.flag[r][c] == true)) {
       this.board[r][c] = this.tempObj;
-      console.log(this.board[r][c], 'dsfdfs', this.tempObj);
+      // console.log(this.board[r][c], 'dsfdfs', this.tempObj);
       this.board[this.movingR][this.movingC] = 'null';
       this.reset();
-      console.table(this.board);
+      // console.table(this.board);
     }
     else {
-      console.log('Reseted', this.count++);
+      // console.log('Reseted', this.count++);
       this.tempObj = '';
       this.operator = '';
       this.reset();
